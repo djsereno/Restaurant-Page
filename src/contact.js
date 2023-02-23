@@ -1,4 +1,4 @@
-function loadContactPage() {
+function loadContactPage(parent) {
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
   content.setAttribute('class', 'contact');
@@ -12,7 +12,7 @@ function loadContactPage() {
   content.appendChild(heading);
   content.appendChild(paragraph);
 
-  return content;
+  parent.appendChild(content);
 }
 
 export default loadContactPage;

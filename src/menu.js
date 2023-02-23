@@ -1,4 +1,4 @@
-function loadMenuPage() {
+function loadMenuPage(parent) {
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
   content.setAttribute('class', 'menu');
@@ -12,7 +12,7 @@ function loadMenuPage() {
   content.appendChild(heading);
   content.appendChild(paragraph);
 
-  return content;
+  parent.appendChild(content);
 }
 
 export default loadMenuPage;
