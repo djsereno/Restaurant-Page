@@ -1,12 +1,11 @@
-console.log('Hello World!');
+import loadHomePage from './home';
+import loadMenuPage from './menu';
+import loadContactPage from './contact';
 
-const content = document.querySelector('div#content');
+const homePage = loadHomePage();
+const menuPage = loadMenuPage();
+const contactPage = loadContactPage();
 
-const heading = document.createElement('h1');
-heading.textContent = 'Amazing Restaurant!';
-
-const paragraph = document.createElement('p');
-paragraph.textContent = 'Our food is sooooooo good!';
-
-content.appendChild(heading);
-content.appendChild(paragraph);
+document.body.appendChild(homePage);
+document.body.appendChild(menuPage);
+document.body.appendChild(contactPage);
