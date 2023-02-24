@@ -68,19 +68,23 @@ function generateMenuSection(headingText, subtitleText, menuItems) {
 
   // menuItems should be formatted as {name: [price, description]}
   const list = document.createElement('ul');
+  list.classList.add('leaders');
   for (const [name, [price, description]] of Object.entries(menuItems)) {
     const listItem = document.createElement('li');
-    const nameItem = document.createElement('p');
+    const nameItem = document.createElement('span');
+    const priceItem = document.createElement('span');
     const descriptionItem = document.createElement('p');
-    const costItem = document.createElement('p');
 
     nameItem.textContent = name;
-    descriptionItem.textContent = price;
-    costItem.textContent = description;
+    nameItem.classList.add('menu-item');
+    priceItem.textContent = price;
+    priceItem.classList.add('price');
+    descriptionItem.textContent = description;
+    descriptionItem.classList.add('description');
 
     listItem.appendChild(nameItem);
+    listItem.appendChild(priceItem);
     listItem.appendChild(descriptionItem);
-    listItem.appendChild(costItem);
     list.appendChild(listItem);
   }
 
