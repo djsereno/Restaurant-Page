@@ -7,14 +7,21 @@ function loadContactPage(parent) {
   heading.textContent = 'Contact Us';
   content.appendChild(heading);
 
+  const phoneSection = document.createElement('section');
+  const phoneHeading = document.createElement('h2');
+  const phone = document.createElement('p');
+  phoneHeading.textContent = 'Phone';
+  phone.textContent = '617-776-1200';
+  phoneSection.appendChild(phoneHeading);
+  phoneSection.appendChild(phone);
+  content.appendChild(phoneSection);
+
   const locationSection = document.createElement('section');
   const locationHeading = document.createElement('h2');
   const address = document.createElement('p');
-  const phone = document.createElement('p');
   const map = document.createElement('iframe');
 
   locationHeading.textContent = 'Location';
-  phone.textContent = '617-776-1200';
   address.textContent = '99 Broadway, Somerville, MA 02145';
 
   const mapAttributes = {
@@ -31,7 +38,6 @@ function loadContactPage(parent) {
   }
 
   locationSection.appendChild(locationHeading);
-  locationSection.appendChild(phone);
   locationSection.appendChild(address);
   locationSection.appendChild(map);
   content.appendChild(locationSection);
