@@ -9,47 +9,54 @@ function loadContactPage(parent) {
 
   const locationSection = document.createElement('section');
   const locationHeading = document.createElement('h2');
-  locationHeading.textContent = 'Location';
   const address = document.createElement('p');
-  address.textContent = '99 Broadway, Somerville, MA 02145';
   const phone = document.createElement('p');
+  const map = document.createElement('iframe');
+
+  locationHeading.textContent = 'Location';
   phone.textContent = '617-776-1200';
+  address.textContent = '99 Broadway, Somerville, MA 02145';
+
+  const mapAttributes = {
+    src: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11787.53065929243!2d-71.082899!3d42.387646!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370da541bb861%3A0xfc9837acaa355e15!2sRincon%20Mexicano%20Somerville!5e0!3m2!1sen!2sus!4v1677221759579!5m2!1sen!2sus',
+    width: '600',
+    height: '450',
+    style: 'border:0;',
+    allowfullscreen: '',
+    loading: 'lazy',
+    referrerpolicy: 'no-referrer-when-downgrade',
+  };
+  for (const [key, value] of Object.entries(mapAttributes)) {
+    map.setAttribute(key, value);
+  }
+
   locationSection.appendChild(locationHeading);
-  locationSection.appendChild(address);
   locationSection.appendChild(phone);
+  locationSection.appendChild(address);
+  locationSection.appendChild(map);
   content.appendChild(locationSection);
 
-
   const hoursSection = document.createElement('section');
-  const heading2 = document.createElement('h2');
-  heading2.textContent = 'Hours';
+  const hoursHeading = document.createElement('h2');
+  hoursHeading.textContent = 'Hours';
 
   const hoursList = document.createElement('ul');
-  const sun = document.createElement('li');
-  const mon = document.createElement('li');
-  const tues = document.createElement('li');
-  const wed = document.createElement('li');
-  const thurs = document.createElement('li');
-  const fri = document.createElement('li');
-  const sat = document.createElement('li');
+  const hours = [
+    'Sun: 10:30 am - 1:00 am',
+    'Mon: 5:00 pm - 1:00 am',
+    'Tue: 10:30 am - 1:00 am',
+    'Wed: 10:30 am -1:00 am',
+    'Thu: 10:30 am - 1:00 am',
+    'Fri: 10:30 am - 1:00 am',
+    'Sat: 10:30 am - 1:00 am',
+  ];
+  hours.forEach((day) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = day;
+    hoursList.appendChild(listItem);
+  });
 
-  sun.textContent = 'Sun: 10:30 am - 1:00 am';
-  mon.textContent = 'Mon: 5:00 pm - 1:00 am';
-  tues.textContent = 'Tue: 10:30 am - 1:00 am';
-  wed.textContent = 'Wed: 10:30 am -1:00 am';
-  thurs.textContent = 'Thu: 10:30 am - 1:00 am';
-  fri.textContent = 'Fri: 10:30 am - 1:00 am';
-  sat.textContent = 'Sat: 10:30 am - 1:00 am';
-
-  hoursList.appendChild(sun);
-  hoursList.appendChild(mon);
-  hoursList.appendChild(tues);
-  hoursList.appendChild(wed);
-  hoursList.appendChild(thurs);
-  hoursList.appendChild(fri);
-  hoursList.appendChild(sat);
-
-  hoursSection.appendChild(heading2);
+  hoursSection.appendChild(hoursHeading);
   hoursSection.appendChild(hoursList);
   content.appendChild(hoursSection);
 
