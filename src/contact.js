@@ -7,15 +7,18 @@ function loadContactPage(parent) {
   heading.textContent = 'Contact Us';
   content.appendChild(heading);
 
+  const locationSection = document.createElement('section');
   const locationHeading = document.createElement('h2');
   locationHeading.textContent = 'Location';
   const address = document.createElement('p');
   address.textContent = '99 Broadway, Somerville, MA 02145';
   const phone = document.createElement('p');
   phone.textContent = '617-776-1200';
-  content.appendChild(locationHeading);
-  content.appendChild(address);
-  content.appendChild(phone);
+  locationSection.appendChild(locationHeading);
+  locationSection.appendChild(address);
+  locationSection.appendChild(phone);
+  content.appendChild(locationSection);
+
 
   const hoursSection = document.createElement('section');
   const heading2 = document.createElement('h2');
