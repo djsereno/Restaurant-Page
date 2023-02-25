@@ -24,6 +24,7 @@ function loadMenuPage(parent) {
     'Served with rice & pinto refried beans',
     plates
   );
+  plateSection.classList.add('orange');
 
   const tacos = {
     'Carne asada': ['$4.25', 'Marinated grilled beef'],
@@ -37,6 +38,7 @@ function loadMenuPage(parent) {
     'All served with cilantro and onions. Extras: lettuce, guacamole, & cheese',
     tacos
   );
+  tacosSection.classList.add('green');
 
   const burritos = {
     Pollo: ['$13.50', 'Chicken'],
@@ -49,6 +51,7 @@ function loadMenuPage(parent) {
     'Served with rice, black beans, pico de gallo, guacamole, sour cream, cheese, & jalapenos',
     burritos
   );
+  burritosSection.classList.add('pink');
 
   content.appendChild(plateSection);
   content.appendChild(tacosSection);
@@ -59,12 +62,16 @@ function loadMenuPage(parent) {
 
 function generateMenuSection(headingText, subtitleText, menuItems) {
   const section = document.createElement('section');
+  const headingGroup = document.createElement('div');
   const heading = document.createElement('h2');
   const subtitle = document.createElement('p');
+  headingGroup.classList.add('heading-group');
   heading.textContent = headingText;
+  heading.classList.add('plaque');
   subtitle.textContent = subtitleText;
-  section.appendChild(heading);
-  section.appendChild(subtitle);
+  headingGroup.appendChild(heading);
+  headingGroup.appendChild(subtitle);
+  section.appendChild(headingGroup);
 
   // menuItems should be formatted as {name: [price, description]}
   const list = document.createElement('ul');

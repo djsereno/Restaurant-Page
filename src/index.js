@@ -4,8 +4,8 @@ import loadContactPage from './contact';
 import './style.css';
 
 const main = document.querySelector('main');
-// loadHomePage(main);
-loadMenuPage(main);
+loadHomePage(main);
+// loadMenuPage(main);
 
 const navLinks = document.querySelectorAll('.nav-link>button');
 navLinks.forEach((navLink) =>
