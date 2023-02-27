@@ -5,12 +5,12 @@ function loadHomePage(parent) {
 
   const heroGroup = document.createElement('div');
   heroGroup.classList.add('hero');
-  const heading = document.createElement('h1');
-  heading.textContent = 'Rincon Mexicano';
-  heroGroup.appendChild(heading);
-  const slogan = document.createElement('h2');
-  slogan.textContent = 'Tastes from a Little Corner of Home';
-  heroGroup.appendChild(slogan);
+  // const heading = document.createElement('h1');
+  // heading.textContent = 'Rincon Mexicano';
+  // heroGroup.appendChild(heading);
+  // const slogan = document.createElement('h2');
+  // slogan.textContent = 'Tastes from a Little Corner of Home';
+  // heroGroup.appendChild(slogan);
   content.appendChild(heroGroup);
 
   const aboutSection = document.createElement('section');
