@@ -3,10 +3,6 @@ function loadMenuPage(parent) {
   content.setAttribute('id', 'content');
   content.setAttribute('class', 'menu');
 
-  const heading = document.createElement('h1');
-  heading.textContent = 'Menu';
-  content.appendChild(heading);
-
   const plates = {
     Enchiladas: [
       '$14.99',
