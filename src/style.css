@@ -64,6 +64,10 @@ header {
   transform: translate(100px, 20px);
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 .nav-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -6,18 +6,25 @@ import './style.css';
 const main = document.querySelector('main');
 loadHomePage(main);
 
+const homeNav = document.querySelector('#home-button');
 const navLinks = document.querySelectorAll('.nav-link>button');
-navLinks.forEach((navLink) =>
-  navLink.addEventListener('click', () => {
-    navLinks.forEach((link) => link.classList.remove('active'));
-    navLink.classList.add('active');
+navLinks.forEach((navLink) => navLink.addEventListener('click', loadPageContent));
+const logo = document.querySelector('.logo');
+logo.addEventListener('click', loadPageContent);
 
-    clearContent(main);
-    if (navLink.id === 'home-button') loadHomePage(main);
-    if (navLink.id === 'menu-button') loadMenuPage(main);
-    if (navLink.id === 'contact-button') loadContactPage(main);
-  })
-);
+function loadPageContent(event) {
+  navLinks.forEach((link) => link.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  clearContent(main);
+  if (event.currentTarget.id === 'logo') {
+    homeNav.classList.add('active');
+    loadHomePage(main);
+  }
+  if (event.currentTarget.id === 'home-button') loadHomePage(main);
+  if (event.currentTarget.id === 'menu-button') loadMenuPage(main);
+  if (event.currentTarget.id === 'contact-button') loadContactPage(main);
+}
 
 function clearContent(parent) {
   parent.innerText = '';
