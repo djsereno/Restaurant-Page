@@ -7,11 +7,16 @@
 
 :root {
   --nav-height: 75px;
-  --color-nav-dark: #4a8125;
-  --color-nav: #63ab32;
-  --color-nav-light: #87b867;
+  --border-offset: 0px;
+  --color-nav-dark: #008a35;
+  --color-nav: #009f3c;
+  --color-nav-light: #00b847;
   --color-dark: #222;
   --color-light: #eee;
+  --color-background: #fdf4e3;
+  --color-green: #009f3c;
+  --color-orange: #f49e17;
+  --color-pink: #e97bac;
 }
 
 * {
@@ -27,12 +32,41 @@
   /* font-family: 'Walter Turncoat', cursive; */
 }
 
+html {
+  position: relative;
+}
+
 body {
-  background-color: #fdf4e3;
+  background-color: var(--color-background);
 }
 
 main {
   margin-top: var(--nav-height);
+  padding-bottom: 50px;
+}
+
+.border {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100px;
+  height: 100%;
+  background-image: url('../src/images/border-decor.png');
+  background-size: 100%;
+  /* opacity: 50%; */
+}
+.border.left {
+  left: var(--border-offset);
+}
+.border.right {
+  right: var(--border-offset);
+  transform: scaleX(-1);
+  overflow: hidden;
+}
+
+.home .plaque {
+  margin: auto;
+  background-color: var(--color-orange);
 }
 
 /* NAVBAR */
@@ -91,13 +125,13 @@ header {
 .nav-link button:hover {
   border-bottom: 2px solid var(--color-light);
   text-shadow: black 1px 0 10px;
-  color: #eee;
+  color: var(--color-light);
   cursor: pointer;
 }
 
 .nav-link .active {
   background: rgba(0, 0, 0, 0.3);
-  color: #eee;
+  color: var(--color-light);
   text-shadow: black 1px 0 10px;
   cursor: pointer;
 }
@@ -180,13 +214,13 @@ header {
 }
 
 .orange :is(.plaque, .price) {
-  background-color: #f49e17;
+  background-color: var(--color-orange);
 }
 .pink :is(.plaque, .price) {
-  background-color: #e97bac;
+  background-color: var(--color-pink);
 }
 .green :is(.plaque, .price) {
-  background-color: #009f3c;
+  background-color: var(--color-green);
 }
 
 .menu li {
@@ -228,7 +262,7 @@ ul.leaders li:before {
 
 ul.leaders span:first-child {
   padding-right: 0.33rem;
-  background-color: #fdf4e3;
+  background-color: var(--color-background);
 }
 
 ul.leaders span + span {
