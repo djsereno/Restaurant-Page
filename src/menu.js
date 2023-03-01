@@ -1,7 +1,7 @@
 function loadMenuPage(parent) {
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
-  content.setAttribute('class', 'menu');
+  content.classList.add('menu');
 
   const plates = {
     Enchiladas: [
@@ -21,6 +21,7 @@ function loadMenuPage(parent) {
     plates
   );
   plateSection.classList.add('orange');
+  content.appendChild(plateSection);
 
   const tacos = {
     'Carne asada': ['$4.25', 'Marinated grilled beef'],
@@ -35,6 +36,7 @@ function loadMenuPage(parent) {
     tacos
   );
   tacosSection.classList.add('green');
+  content.appendChild(tacosSection);
 
   const burritos = {
     Pollo: ['$13.50', 'Chicken'],
@@ -48,14 +50,12 @@ function loadMenuPage(parent) {
     burritos
   );
   burritosSection.classList.add('pink');
-
-  content.appendChild(plateSection);
-  content.appendChild(tacosSection);
   content.appendChild(burritosSection);
 
   parent.appendChild(content);
 }
 
+// menuItems should be formatted as {name: [price, description]}
 function generateMenuSection(headingText, subtitleText, menuItems) {
   const section = document.createElement('section');
   const headingGroup = document.createElement('div');
@@ -80,7 +80,6 @@ function generateMenuSection(headingText, subtitleText, menuItems) {
   heading.textContent = headingText;
   subtitle.textContent = subtitleText;
 
-  // menuItems should be formatted as {name: [price, description]}
   const list = document.createElement('ul');
   list.classList.add('leaders');
   for (const [name, [price, description]] of Object.entries(menuItems)) {
@@ -101,7 +100,6 @@ function generateMenuSection(headingText, subtitleText, menuItems) {
     listItem.appendChild(descriptionItem);
     list.appendChild(listItem);
   }
-
   section.appendChild(list);
 
   return section;

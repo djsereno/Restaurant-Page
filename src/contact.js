@@ -58,7 +58,6 @@ function loadContactPage(parent) {
 
     openHours.appendChild(listItem);
   }
-
   content.appendChild(openHours);
 
   parent.appendChild(content);

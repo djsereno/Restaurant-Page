@@ -4,13 +4,13 @@ import loadContactPage from './contact';
 import './style.css';
 
 const main = document.querySelector('main');
-loadContactPage(main);
-
-const homeNav = document.querySelector('#home-button');
-const navLinks = document.querySelectorAll('.nav-link>button');
-navLinks.forEach((navLink) => navLink.addEventListener('click', loadPageContent));
 const logo = document.querySelector('.logo');
+const navLinks = document.querySelectorAll('.nav-link>button');
+const homeNav = document.querySelector('#home-button');
+
 logo.addEventListener('click', loadPageContent);
+navLinks.forEach((navLink) => navLink.addEventListener('click', loadPageContent));
+loadHomePage(main);
 
 function loadPageContent(event) {
   navLinks.forEach((link) => link.classList.remove('active'));
@@ -20,11 +20,10 @@ function loadPageContent(event) {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
   clearContent(main);
-  if (event.currentTarget.id === 'logo') {
+  if (event.currentTarget.id === 'logo' || event.currentTarget.id === 'home-button') {
     homeNav.classList.add('active');
     loadHomePage(main);
   }
-  if (event.currentTarget.id === 'home-button') loadHomePage(main);
   if (event.currentTarget.id === 'menu-button') loadMenuPage(main);
   if (event.currentTarget.id === 'contact-button') loadContactPage(main);
 }
