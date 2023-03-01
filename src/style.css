@@ -31,6 +31,7 @@ body {
 }
 
 main {
+  min-height: 100dvh;
   margin-top: var(--nav-height);
   padding-bottom: 50px;
 }
@@ -288,7 +289,6 @@ ul.leaders span + span {
   flex-direction: column;
   align-items: center;
   max-width: min(80%, 900px);
-  min-height: 100dvh;
   margin: auto;
   padding-top: 75px;
   gap: 10px;
