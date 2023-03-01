@@ -41,10 +41,12 @@ function loadContactPage(parent) {
     '10:30AM - 10:00PM',
     '10:30AM - 10:00PM',
   ];
+  const now = new Date();
+  const today = now.getDay();
   for (let i = 0; i < days.length; i++) {
     const listItem = document.createElement('li');
     listItem.classList.add('hours');
-    if (days[i] === 'MONDAY') listItem.classList.add('monday');
+    if (i === today) listItem.classList.add('today');
 
     const day = document.createElement('span');
     day.classList.add('day');

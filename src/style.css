@@ -336,7 +336,11 @@ iframe {
   gap: 10px;
 }
 
-.open-hours li.monday {
+.hours {
+  padding: 5px 20px;
+}
+
+.open-hours li.today {
   border: 4px solid #a53a89;
   background-color: #d94b93;
 }
