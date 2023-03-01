@@ -59,15 +59,26 @@ function loadMenuPage(parent) {
 function generateMenuSection(headingText, subtitleText, menuItems) {
   const section = document.createElement('section');
   const headingGroup = document.createElement('div');
+  const plaqueGroup = document.createElement('div');
+  const flareLeft = document.createElement('span');
+  const flareRight = document.createElement('span');
   const heading = document.createElement('h2');
   const subtitle = document.createElement('p');
-  headingGroup.classList.add('heading-group');
-  heading.textContent = headingText;
-  heading.classList.add('plaque');
-  subtitle.textContent = subtitleText;
-  headingGroup.appendChild(heading);
-  headingGroup.appendChild(subtitle);
+
   section.appendChild(headingGroup);
+  headingGroup.appendChild(plaqueGroup);
+  headingGroup.appendChild(subtitle);
+  plaqueGroup.appendChild(flareLeft);
+  plaqueGroup.appendChild(heading);
+  plaqueGroup.appendChild(flareRight);
+
+  headingGroup.classList.add('heading-group');
+  plaqueGroup.classList.add('plaque');
+  flareLeft.classList.add('flare');
+  flareRight.classList.add('flare');
+
+  heading.textContent = headingText;
+  subtitle.textContent = subtitleText;
 
   // menuItems should be formatted as {name: [price, description]}
   const list = document.createElement('ul');

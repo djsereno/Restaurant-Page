@@ -28,10 +28,20 @@ function loadHomePage(parent) {
   });
   content.appendChild(aboutSection);
 
+  const plaqueGroup = document.createElement('div');
+  const flareLeft = document.createElement('span');
+  const flareRight = document.createElement('span');
   const signOff = document.createElement('h2');
   signOff.innerText = 'Buen Provecho!';
   signOff.classList.add('plaque', 'orange');
-  content.appendChild(signOff);
+
+  plaqueGroup.appendChild(flareLeft);
+  plaqueGroup.appendChild(signOff);
+  plaqueGroup.appendChild(flareRight);
+  plaqueGroup.classList.add('plaque');
+  flareLeft.classList.add('flare');
+  flareRight.classList.add('flare');
+  content.appendChild(plaqueGroup);
 
   parent.appendChild(content);
 }
