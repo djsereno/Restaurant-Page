@@ -3,31 +3,20 @@ function loadContactPage(parent) {
   content.setAttribute('id', 'content');
   content.setAttribute('class', 'contact');
 
-  const heading = document.createElement('h1');
-  heading.textContent = 'Contact Us';
-  content.appendChild(heading);
-
-  const phoneSection = document.createElement('section');
-  const phoneHeading = document.createElement('h2');
   const phone = document.createElement('p');
-  phoneHeading.textContent = 'Phone';
-  phone.textContent = '617-776-1200';
-  phoneSection.appendChild(phoneHeading);
-  phoneSection.appendChild(phone);
-  content.appendChild(phoneSection);
+  phone.classList.add('phone');
+  phone.innerHTML = '•&nbsp&nbsp&nbsp617.776.1200&nbsp&nbsp&nbsp•';
+  content.appendChild(phone);
 
-  const locationSection = document.createElement('section');
-  const locationHeading = document.createElement('h2');
   const address = document.createElement('p');
+  address.classList.add('address');
+  address.innerHTML = '<span>99 BROADWAY</span><span>SOMERVILLE MA 02145</span>';
+
   const map = document.createElement('iframe');
-
-  locationHeading.textContent = 'Location';
-  address.textContent = '99 Broadway, Somerville, MA 02145';
-
   const mapAttributes = {
     src: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11787.53065929243!2d-71.082899!3d42.387646!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370da541bb861%3A0xfc9837acaa355e15!2sRincon%20Mexicano%20Somerville!5e0!3m2!1sen!2sus!4v1677221759579!5m2!1sen!2sus',
-    width: '600',
-    height: '450',
+    width: '500',
+    height: '375',
     style: 'border:0;',
     allowfullscreen: '',
     loading: 'lazy',
@@ -37,34 +26,40 @@ function loadContactPage(parent) {
     map.setAttribute(key, value);
   }
 
-  locationSection.appendChild(locationHeading);
-  locationSection.appendChild(address);
-  locationSection.appendChild(map);
-  content.appendChild(locationSection);
+  content.appendChild(address);
+  content.appendChild(map);
 
-  const hoursSection = document.createElement('section');
-  const hoursHeading = document.createElement('h2');
-  hoursHeading.textContent = 'Hours';
-
-  const hoursList = document.createElement('ul');
+  const openHours = document.createElement('ul');
+  openHours.classList.add('open-hours');
+  const days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
   const hours = [
-    'Sun: 10:30 am - 1:00 am',
-    'Mon: 5:00 pm - 1:00 am',
-    'Tue: 10:30 am - 1:00 am',
-    'Wed: 10:30 am -1:00 am',
-    'Thu: 10:30 am - 1:00 am',
-    'Fri: 10:30 am - 1:00 am',
-    'Sat: 10:30 am - 1:00 am',
+    '10:30AM - 10:00PM',
+    '5:00PM - 10:00PM',
+    '10:30AM -10:00PM',
+    '10:30AM -10:00PM',
+    '10:30AM - 10:00PM',
+    '10:30AM - 10:00PM',
+    '10:30AM - 10:00PM',
   ];
-  hours.forEach((day) => {
+  for (let i = 0; i < days.length; i++) {
     const listItem = document.createElement('li');
-    listItem.textContent = day;
-    hoursList.appendChild(listItem);
-  });
+    listItem.classList.add('hours');
+    if (days[i] === 'MONDAY') listItem.classList.add('monday');
 
-  hoursSection.appendChild(hoursHeading);
-  hoursSection.appendChild(hoursList);
-  content.appendChild(hoursSection);
+    const day = document.createElement('span');
+    day.classList.add('day');
+    day.textContent = days[i];
+    listItem.appendChild(day);
+
+    const hour = document.createElement('span');
+    hour.classList.add('time');
+    hour.textContent = hours[i];
+    listItem.appendChild(hour);
+
+    openHours.appendChild(listItem);
+  }
+
+  content.appendChild(openHours);
 
   parent.appendChild(content);
 }
