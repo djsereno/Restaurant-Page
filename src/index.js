@@ -4,7 +4,7 @@ import loadContactPage from './contact';
 import './style.css';
 
 const main = document.querySelector('main');
-loadHomePage(main);
+loadContactPage(main);
 
 const homeNav = document.querySelector('#home-button');
 const navLinks = document.querySelectorAll('.nav-link>button');
@@ -15,6 +15,9 @@ logo.addEventListener('click', loadPageContent);
 function loadPageContent(event) {
   navLinks.forEach((link) => link.classList.remove('active'));
   event.currentTarget.classList.add('active');
+
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
   clearContent(main);
   if (event.currentTarget.id === 'logo') {
