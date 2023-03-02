@@ -35,8 +35,8 @@ function loadContactPage(parent) {
   const hours = [
     '10:30AM - 10:00PM',
     '5:00PM - 10:00PM',
-    '10:30AM -10:00PM',
-    '10:30AM -10:00PM',
+    '10:30AM - 10:00PM',
+    '10:30AM - 10:00PM',
     '10:30AM - 10:00PM',
     '10:30AM - 10:00PM',
     '10:30AM - 10:00PM',
