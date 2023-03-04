@@ -2,15 +2,22 @@ import loadHomePage from './home';
 import loadMenuPage from './menu';
 import loadContactPage from './contact';
 import './style.css';
+import logoImg from './assets/logo.png';
+import faviconImg from './assets/favicon.png';
 
 const main = document.querySelector('main');
 const logo = document.querySelector('.logo');
 const navLinks = document.querySelectorAll('.nav-link>button');
 const homeNav = document.querySelector('#home-button');
+const favicon = document.querySelector('link[rel="shortcut icon"]');
 
-logo.addEventListener('click', loadPageContent);
-navLinks.forEach((navLink) => navLink.addEventListener('click', loadPageContent));
-loadHomePage(main);
+function clearContent(parent) {
+  // eslint-disable-next-line no-param-reassign
+  parent.innerText = '';
+  while (parent.lastChild) {
+    parent.removeChild(parent.lastChild);
+  }
+}
 
 function loadPageContent(event) {
   navLinks.forEach((link) => link.classList.remove('active'));
@@ -28,9 +35,8 @@ function loadPageContent(event) {
   if (event.currentTarget.id === 'contact-button') loadContactPage(main);
 }
 
-function clearContent(parent) {
-  parent.innerText = '';
-  while (parent.lastChild) {
-    parent.removeChild(parent.lastChild);
-  }
-}
+favicon.setAttribute('href', faviconImg);
+logo.src = logoImg;
+logo.addEventListener('click', loadPageContent);
+navLinks.forEach((navLink) => navLink.addEventListener('click', loadPageContent));
+loadHomePage(main);

@@ -22,9 +22,9 @@ function loadContactPage(parent) {
     loading: 'lazy',
     referrerpolicy: 'no-referrer-when-downgrade',
   };
-  for (const [key, value] of Object.entries(mapAttributes)) {
-    map.setAttribute(key, value);
-  }
+  Object.keys(mapAttributes).forEach((key) => {
+    map.setAttribute(key, mapAttributes[key]);
+  });
 
   content.appendChild(address);
   content.appendChild(map);
@@ -43,7 +43,7 @@ function loadContactPage(parent) {
   ];
   const now = new Date();
   const today = now.getDay();
-  for (let i = 0; i < days.length; i++) {
+  for (let i = 0; i < days.length; i += 1) {
     const listItem = document.createElement('li');
     listItem.classList.add('hours');
     if (i === today) listItem.classList.add('today');

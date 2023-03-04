@@ -44,7 +44,7 @@ main {
   z-index: -1;
   width: 100px;
   height: 100%;
-  background-image: url('../src/images/border-decor.png');
+  background-image: url('./assets/border-decor.png');
   background-size: 100%;
 }
 .border.left {
@@ -137,7 +137,7 @@ header {
 
 .home .hero {
   height: 40vh;
-  background-image: url('./images/tacos.jpg');
+  background-image: url('./assets/tacos.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -226,7 +226,7 @@ header {
   margin-bottom: auto;
   margin-top: auto;
   background-color: transparent;
-  background-image: url('../src/images/flare.png');
+  background-image: url('./assets/flare.png');
   background-repeat: no-repeat;
   background-size: contain;
 }

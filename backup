@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
-    <link rel="shortcut icon" type="image/png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/images/favicon.png" />
     <title>Rincón Mexicano</title>
   </head>
   <body>
     <header>
       <div class="logo-container">
-        <img alt="Rincón Mexicano" class="logo" id="logo" height="100" />
+        <img
+          src="./assets/images/logo.png"
+          alt="Rincón Mexicano"
+          class="logo"
+          id="logo"
+          height="100"
+        />
       </div>
       <ul class="nav-bar">
         <li class="nav-link"><button class="active" id="home-button">Home</button></li>
